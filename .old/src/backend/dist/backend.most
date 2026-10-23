@@ -1,0 +1,49 @@
+// Version: 4.0.0
+type Data__80296667<K, V> =
+  {var count : Nat__1040412405; kvs : [var ?(K, V)]};
+type Internal__41346355<K, V> =
+  {children : [var ?Node__1000929467<K, V>]; data : Data__80296667<K, V>};
+type Leaf__712614010<K, V> = {data : Data__80296667<K, V>};
+type ListItem__432729206 = {id : Nat; name : Text};
+type ListItem__913256630 = {id : Nat; name : Text};
+type Map__222667396<K, V> = Map__912772452<K, V>;
+type Map__709709801<K, V> =
+  {var root : Node__1000929467<K, V>; var size : Nat__1040412405};
+type Map__912772452<K, V> = Map__709709801<K, V>;
+type Nat__1040412405 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__1000929467<K, V> =
+  {#internal : Internal__41346355<K, V>; #leaf : Leaf__712614010<K, V>};
+type ShoppingListItem__1006524112 =
+  {amount : Nat; completed : Bool; id : Nat};
+type ShoppingListItem__708200430 = {amount : Nat; completed : Bool; id : Nat};
+type ShoppingList__401221693 =
+  {id : Nat; items : [ShoppingListItem__708200430]; name : Text};
+type ShoppingList__732442246 =
+  {id : Nat; items : [ShoppingListItem__1006524112]; name : Text};
+{
+  "20250101_000000_Init" :
+    {} ->
+      {
+        var index : Nat;
+        var isInitialised : Bool;
+        listItems : Map__222667396<Nat, ListItem__913256630>;
+        var shoppingListIndex : Nat;
+        shoppingLists : Map__222667396<Nat, ShoppingList__401221693>
+      }
+}
+actor  {
+  stable var index : Nat;
+  stable var isInitialised : Bool;
+  stable listItems :
+    {
+      var root : Node__1000929467<Nat, ListItem__432729206>;
+      var size : Nat__1040412405
+    };
+  stable var shoppingListIndex : Nat;
+  stable shoppingLists :
+    {
+      var root : Node__1000929467<Nat, ShoppingList__732442246>;
+      var size : Nat__1040412405
+    }
+};
